@@ -49,7 +49,7 @@ function process {
 echo "### Urls Found:" > $OUTPUT
 
 # Check if APK file
-if [[ $FILENAME == *"apk"* ]]; then
+if [[ $FILENAME == *".apk"* ]]; then
 	echo "[+] APK file found, extracting..."
 	if [[ ! -d "./tmp" ]]; then
 		mkdir ./tmp
