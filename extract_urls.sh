@@ -12,7 +12,11 @@ if [ ! -z "$2" ]; then
 fi
 
 FILENAME=$1
-OUTPUT='output.txt'
+OUTPUT='urls_output.txt'
+
+if [[ -f $OUTPUT ]]; then
+	rm $OUTPUT
+fi
 
 function process_binary {
 	urls=$(rabin2 -z $1 | egrep -w 'https?://[^ ]+')
@@ -45,8 +49,6 @@ function process {
 			process_plaintext $1 $2
 		fi
 }
-
-echo "### Urls Found:" > $OUTPUT
 
 # Check if APK file
 if [[ $FILENAME == *".apk"* ]]; then
