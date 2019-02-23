@@ -18,6 +18,8 @@ if [[ -f $OUTPUT ]]; then
 	rm $OUTPUT
 fi
 
+touch $OUTPUT
+
 function process_binary {
 	urls=$(rabin2 -z $1 | egrep -w 'https?://[^ ]+')
 	if [ ! -z "${urls}" ]; then
